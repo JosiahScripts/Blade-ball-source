@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>System Breach</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      padding: 20px;
+      white-space: pre-wrap;
+      text-shadow: 0 0 5px red, 0 0 10px red;
+      overflow: hidden;
+    }
+    .glitch {
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { color: #00ff00; text-shadow: 0 0 5px red; }
+      20% { color: red; text-shadow: 0 0 5px green; }
+      40% { color: #00ff00; text-shadow: 0 0 8px red; }
+      60% { color: red; text-shadow: 0 0 3px green; }
+      80% { color: #00ff00; text-shadow: 0 0 5px red; }
+      100% { color: red; text-shadow: 0 0 10px green; }
+    }
+
+    ::selection {
+      background: red;
+      color: black;
+    }
+  </style>
+</head>
+<body id="console" class="glitch"></body>
+
+<script>
+  const lines = [
+    "Connecting to device...",
+    "Access granted.",
+    "Collecting system data...",
+    "IP Address: 192.168.69.34",
+    "Location: Philippines, Metro Manila",
+    "Hostname: user-laptop",
+    "OS: Windows 10 - Unprotected",
+    "Webcam: Accessed",
+    "Injecting payload...",
+    "Bypassing antivirus...",
+    "Downloading files (3/18)...",
+    "System breach confirmed.",
+    "Encrypting files...",
+    "Launching remote control shell...",
+    "Goodbye."
+  ];
+
+  let i = 0;
+  function typeLine() {
+    if (i < lines.length) {
+      document.getElementById("console").innerHTML += lines[i] + "\n";
+      i++;
+      let delay = 2000 + Math.random() * 1000; // Slower and varied timing
+      setTimeout(typeLine, delay);
+    }
+  }
+
+  setTimeout(typeLine, 1500);
+</script>
+</html>
